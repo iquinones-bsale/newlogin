@@ -1,0 +1,222 @@
+
+//externos
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
+
+//@import "normalize.css";
+
+
+//reset
+body{margin: 0; background:white;overflow-y:visible;}
+a{text-decoration:none; color: inherit;
+	&:focus{color:inherit;}
+}
+input{
+	&:focus{outline:0px;} //elimina border de chrome
+}
+
+*{
+	box-sizing: border-box;
+}
+
+//mixin
+@mixin border-radius($px){
+	border-radius: $px;
+	-webkit-border-radius: $px;
+	-moz-border-radius: $px;
+}
+@mixin object-img($fit,$position){
+	object-fit: $fit; //deja la imagen 100% no compatible con internet explorer
+	object-position: $position;
+	//opera
+	-o-object-fit: $fit; 
+	-o-object-position: $position;
+}
+
+
+// texto 
+body{
+	font-family: 'Open Sans', sans-serif;
+	font-size:16px;
+	@media screen and (min-width:1366px){font-size: 18px;}
+}
+//color
+	$orange: #ff6815;
+//variables
+	$desktop: "screen and (min-width: 768px)" ;
+	$mobile: "screen and (max-width:767px)";
+	
+	$f-bold: 600;
+//css generales	
+
+	
+
+
+input{
+	font-size: 1rem;
+}
+small{
+	font-size: 0.75rem;
+}
+h2{
+	font-size: 1.5rem;
+}
+strong{
+	font-weight:$f-bold;
+}
+
+
+.img-responsive, .logo{
+	max-width:100%;
+	height:auto;
+}
+.logo{
+	margin: 20px;
+}
+
+
+.container{
+	width: 100%;
+	@media #{$desktop} {
+		height: 100vh;
+		display:flex;
+		align-items: stretch; // hijo directo usa el 100% del alto	
+	}
+	
+	
+	.col{
+		@media #{$desktop} {
+			width: 40%;
+			display: flex;
+			justify-content: center;
+		}
+		.container{
+			@media #{$desktop} {
+				width:320px;
+				display: flex;
+				flex-direction: column; // organiza item en columna
+				@media screen and (min-height:450px){
+					justify-content: center; //centra todos los elementos 
+				}
+				//
+			}
+			text-align: center;
+			padding: 0 40px;
+		}
+		input, label{
+			display: block;
+			width: 100%;
+			margin: 10px 0;
+			@include border-radius(4px);
+		}
+		label{
+			text-align:left;
+			margin-bottom: -5px;
+		}
+		input{
+			padding: 10px 15px;
+			border:1px solid silver;
+		}
+		
+	}//col
+	.publi{
+		@media #{$mobile} {
+			display:none;
+		}//@media
+		$margen-img: 60px;
+		@media #{$desktop} {
+			width: 60%;
+			position:fixed;
+			right:0;
+			
+			.marco{
+				position:relative;
+				width: 100%; //100% del ancho del padre (66.6%;)
+				height: 100vh;
+				overflow:hidden;
+				&:after{
+					content:" ";
+					position: absolute;
+						top: 0;
+						left: 0;
+						bottom: 0;
+						right: 0;
+					background:rgba(0,0,0,0.5);
+				}//:after
+				
+				img{
+					width: 100%; //100% del ancho del padre (66.6%;)
+					height: 100%; //100% del alto
+					@include  object-img(cover,right);
+				}//img
+			}//.marco
+			.info{
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				justify-content: center;
+				color:white;
+				z-index:20;
+				position:absolute;
+					bottom: 0px;
+					left: 20px;
+					right: 20px;
+					top: 0;
+				h2{
+					text-align:center;
+					margin: 0 0 15px;
+					font-weight:400;
+				}
+			}
+		}
+		
+		
+		
+	}//publi
+	
+}
+
+*[class^="btn"]{
+	display: block;
+	@include border-radius(4px);
+	padding: 10px 15px;
+	text-align: center;
+	color: white;
+	margin: 15px 0;
+	-webkit-transition: all 0.5s; /* For Safari 3.1 to 6.0 */
+	transition: all 0.5s;
+}
+.btn{
+	
+	background: $orange;
+	&:hover{
+		background: darken($orange, 10%);
+	}
+	&-img{// .btn-img
+		display: inline-block;
+		background: rgb(29, 161, 219);
+		margin:0;
+		&:hover{
+			background: darken(rgb(29, 161, 219), 10%);
+		}
+	}//&-img
+}//.btn
+
+.link{
+	color: $orange;
+	&:hover{
+		text-decoration: underline;
+	}//:hover
+}//.link
+
+.ayuda{
+	color: rgba(0,0,0,0.5);
+	margin:20px 0;
+	.msj.mobile{
+			border: 1px solid silver;
+			padding: 10px 15px;
+			@include border-radius(4px);
+	}
+}
+.none{
+	display:none !important;
+}
