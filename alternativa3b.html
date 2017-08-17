@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<title>Etapa uno framework</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link href="css/style-v3.css" rel="stylesheet" type="text/css">
+	<link href="css/style-v3b.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="/node_modules/animate_css/animate.min.css" type="text/css" />
 </head>
 <body>
@@ -16,7 +16,7 @@
 				<label for="">Nombre de usuario</label>
 				<input type="text" name=""/>
 				<label for="">Contraseña</label>
-				<input type="password" name=""/>
+				<input type="text" name=""/>
 				<a class="btn" href="#">Iniciar Sesión</a>
 				
 				<a class="link" href="#">Olvidé mi contraseña</a>
@@ -49,7 +49,6 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script>
-	//animaciones 
 	$(window).load(function(){
 		setTimeout(function(){
 			$('.publi').removeClass('none').addClass('animated fadeIn').one(
@@ -58,7 +57,6 @@
 			});
 		},200);
 	});
-	//detecta ancho de la pag y cambia el mensaje de ayuda
 	$(document).ready(function(){
 		var mediaquery = window.matchMedia("(max-width: 767px)"); // detecta el tamaño de la pantalla segun media queries
 		function msj_xPantalla(){

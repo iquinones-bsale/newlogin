@@ -6,7 +6,7 @@
 
 
 //reset
-body{margin: 0; background:white;overflow-y:scroll;}
+body{margin: 0; background:white;overflow-y:visible;}
 a{text-decoration:none; color: inherit;
 	&:focus{color:inherit;}
 }
@@ -35,9 +35,9 @@ input{
 
 // texto 
 body{
-	font-family: 'Lato', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size:16px;
-	@media screen and (min-width:1366px){font-size: 20px;}
+	@media screen and (min-width:1366px){font-size: 18px;}
 }
 //color
 	$orange: #ff6815;
@@ -55,7 +55,7 @@ input{
 	font-size: 1rem;
 }
 small{
-	font-size: 0.85rem;
+	font-size: 0.75rem;
 }
 h2{
 	font-size: 1.5rem;
