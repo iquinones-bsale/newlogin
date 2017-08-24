@@ -1,6 +1,5 @@
 
 //externos
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 //@import "normalize.css";
 
@@ -30,6 +29,7 @@ input{
 	//opera
 	-o-object-fit: $fit; 
 	-o-object-position: $position;
+
 }
 
 
@@ -45,7 +45,7 @@ body{
 	$desktop: "screen and (min-width: 768px)" ;
 	$mobile: "screen and (max-width:767px)";
 	
-	$f-bold: 600;
+	$f-bold: 700;
 //css generales	
 
 	
@@ -144,9 +144,14 @@ strong{
 				}//:after
 				
 				img{
-					width: 100%; //100% del ancho del padre (66.6%;)
+					width: 100%; //100% del ancho del padre ()
 					height: 100%; //100% del alto
 					@include  object-img(cover,right);
+					@supports (-ms-ime-align:auto) {
+						width: 100vw;
+						height: auto;
+					
+					}//@SUPPORTS
 				}//img
 			}//.marco
 			.info{
